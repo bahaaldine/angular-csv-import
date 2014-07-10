@@ -1,0 +1,32 @@
+{
+    "name": "angular-csv-import",
+    "version": "0.0.0",
+    "main": "dist/angular-csv-import",
+    "license": "MIT",
+    "authors": [
+        "Bahaaldine AZARMI <bahaaldine@gmail.com>"
+    ],
+    "description": "angular component let's you import a CSV file",
+    "keywords": [
+        "angular",
+        "csv",
+        "import"
+    ],
+    "ignore": [
+        "source",
+        "spec",
+        ".bowerrc",
+        ".gitignore",
+        ".jshintignore",
+        ".jshintrc",
+        "bower.json",
+        "gruntfile.js",
+        "package.json",
+        "README.md"
+    ],
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+}
+
