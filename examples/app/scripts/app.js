@@ -12,7 +12,7 @@ angular
   .module('examplesApp', [
     'ngResource',
     'ngRoute',
-    'ngCSVImport'
+    'ngCsvImport'
   ])
   .config(function ($routeProvider) {
     $routeProvider
