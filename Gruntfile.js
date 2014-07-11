@@ -95,6 +95,12 @@ module.exports = function(grunt) {
         dest: 'dist/',
         ext: '.min.css'
       }
+    },
+    'gh-pages': {
+      options: {
+        base: 'examples/dist'
+      },
+      src: '**/*'
     }
   });
 
@@ -106,6 +112,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-gh-pages');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'cssmin']);

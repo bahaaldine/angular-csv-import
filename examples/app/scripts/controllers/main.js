@@ -5,16 +5,17 @@ angular.module('examplesApp')
     $scope.csv = {
     	content: null,
     	header: true,
-    	separator: ",",
+    	separator: ',',
     	result: null
-    }
+    };
 
     var _lastGoodResult = '';
     $scope.toPrettyJSON = function (objStr, tabWidth) {
 		
+		var obj = null;
 		try {
-			var obj = $parse(objStr)({});
-		}catch(e){
+			obj = $parse(objStr)({});
+		} catch(e){
 			// eat $parse error
 			return _lastGoodResult;
 		}
