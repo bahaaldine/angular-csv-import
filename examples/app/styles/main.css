@@ -116,3 +116,57 @@ div.block.center {
 div.block.right {
 }
 
+
+footer {
+}
+
+footer>div {
+  position: absolute;
+  color: white;
+  bottom: 40px;
+}
+
+footer>div a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+footer>div a:hover {
+  text-decoration: underline;
+  vertical-align: bottom;
+}
+
+footer>div.twitter {
+  left: 40px;
+}
+
+footer>div.twitter>div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+footer>div.twitter>div.avatar {
+  margin: 0px 5px 0px 0px;
+  background: url("../images/about.bahaaldine.png");
+  background-size: contain;
+  border: solid 3px white;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+}
+
+footer>div.github {
+  right: 40px;  
+}
+
+footer>div.github>div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+footer>div.github>div.icon {
+  font-size: 35px;
+  margin: 0px 5px 0px 0px;
+}
+
