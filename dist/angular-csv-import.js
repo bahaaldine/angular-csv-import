@@ -1,4 +1,4 @@
-/*! angular-csv-import - v0.0.5 - 2014-07-11
+/*! angular-csv-import - v0.0.6 - 2014-07-11
 * Copyright (c) 2014 ; Licensed  */
 /*! angular-csv-import - v0.0.4 - 2014-07-10
 * Copyright (c) 2014 ; Licensed  */
@@ -6,7 +6,7 @@
 
 var csvImport = angular.module('ngCsvImport', []);
 
-csvImport.directive('ngCsvImport',function() {
+csvImport.directive('ngCsvImport', function() {
 	return {
 		restrict: 'E',
 		transclude: true,
@@ -17,8 +17,8 @@ csvImport.directive('ngCsvImport',function() {
 			separator: '=',
 			result: '='
 		},
-		template: '<div><div><span>Header</span><input type="checkbox" ng-model="header"></div>'+
-			'<div><span>Seperator</span><input type="input" ng-change="changeSeparator" ng-model="separator"></div>'+
+		template: '<div><div><div class="label">Header</div><input type="checkbox" ng-model="header"></div>'+
+			'<div><div class="label">Seperator</div><input type="text" ng-change="changeSeparator" ng-model="separator"></div>'+
 			'<div><input type="file"/></div></div>',
 		link: function(scope, element) {            
 			element.on('keyup', function(e){

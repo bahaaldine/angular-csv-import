@@ -1,19 +1,18 @@
-<div ng-if="csv.content" class="block left">
-    <h2>File content is:</h2>
-    <pre>{{ csv.content }}</pre>
-</div>
-
 <div class="block center">
 	<ng-csv-import 
+		class="import"
 		content="csv.content"
 		header="csv.header" 
 		separator="csv.separator"
 		result="csv.result"></ng-csv-import>
 </div>
 
-<div class="block right">
-	<div ng-if="csv.result">
-	    <h2>CSV to JSON content is:</h2>
-	    <div hljs source="toPrettyJSON(csv.result, 2)"></div>
-	</div>
+<div ng-if="csv.content" class="block left">
+    <h2>CSV</h2>
+    <div class="content"><pre>{{ csv.content }}</pre></div>
+</div>
+
+<div class="block right" ng-if="csv.result">
+	<h2>JSON</h2>
+	<div class="content" hljs source="toPrettyJSON(csv.result, 2)"></div>
 <div>
