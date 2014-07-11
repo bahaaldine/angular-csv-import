@@ -12,7 +12,8 @@ angular
   .module('examplesApp', [
     'ngResource',
     'ngRoute',
-    'ngCsvImport'
+    'ngCsvImport',
+    'hljs'
   ])
   .config(function ($routeProvider) {
     $routeProvider
