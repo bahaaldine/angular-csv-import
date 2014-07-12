@@ -1,4 +1,4 @@
-/*! angular-csv-import - v0.0.10 - 2014-07-12
+/*! angular-csv-import - v0.0.11 - 2014-07-12
 * Copyright (c) 2014 ; Licensed  */
 /*! angular-csv-import - v0.0.6 - 2014-07-11
 * Copyright (c) 2014 ; Licensed  */
