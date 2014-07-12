@@ -1,6 +1,6 @@
 {
     "name": "angular-csv-import",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "main": "dist/angular-csv-import",
     "license": "MIT",
     "authors": [
