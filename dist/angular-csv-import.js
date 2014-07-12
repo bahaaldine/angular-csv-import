@@ -1,3 +1,5 @@
+/*! angular-csv-import - v0.0.10 - 2014-07-12
+* Copyright (c) 2014 ; Licensed  */
 /*! angular-csv-import - v0.0.6 - 2014-07-11
 * Copyright (c) 2014 ; Licensed  */
 /*! angular-csv-import - v0.0.4 - 2014-07-10
@@ -47,8 +49,7 @@ csvImport.directive('ngCsvImport', function() {
 						scope.result = csvToJSON(content);
 					});
 				};
-
-				if ( onChangeEvent.target.files != null || onChangeEvent.srcElement.files != null) {
+				if ( (onChangeEvent.target.type === "file") && (onChangeEvent.target.files != null || onChangeEvent.srcElement.files != null) )  {
 					reader.readAsText((onChangeEvent.srcElement || onChangeEvent.target).files[0]);
 				} else {
 					if ( scope.content != null ) {
