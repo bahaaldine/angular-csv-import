@@ -1,10 +1,4 @@
-/*! angular-csv-import - v0.0.13 - 2014-09-18
-* Copyright (c) 2014 ; Licensed  */
-/*! angular-csv-import - v0.0.11 - 2014-07-12
-* Copyright (c) 2014 ; Licensed  */
-/*! angular-csv-import - v0.0.6 - 2014-07-11
-* Copyright (c) 2014 ; Licensed  */
-/*! angular-csv-import - v0.0.4 - 2014-07-10
+/*! angular-csv-import - v0.0.14 - 2014-11-25
 * Copyright (c) 2014 ; Licensed  */
 'use strict';
 
@@ -80,7 +74,7 @@ csvImport.directive('ngCsvImport', function() {
 
 				for (var i=start; i<lines.length; i++) {
 					var obj = {};
-					var currentline=lines[i].split(content.separator);
+					var currentline=lines[i].split(new RegExp(content.separator+'(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)'));
 					if ( currentline.length === columnCount ) {
 						if (content.header) {
 							for (var j=0; j<headers.length; j++) {
