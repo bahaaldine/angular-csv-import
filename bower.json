@@ -1,7 +1,7 @@
 {
     "name": "angular-csv-import",
     "version": "0.0.14",
-    "main": "dist/angular-csv-import",
+    "main": "dist/angular-csv-import.js",
     "license": "MIT",
     "authors": [
         "Bahaaldine AZARMI <bahaaldine@gmail.com>"
