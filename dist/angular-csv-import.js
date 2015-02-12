@@ -1,5 +1,5 @@
-/*! angular-csv-import - v0.0.14 - 2014-11-25
-* Copyright (c) 2014 ; Licensed  */
+/*! angular-csv-import - v0.0.14 - 2015-02-10
+* Copyright (c) 2015 ; Licensed  */
 'use strict';
 
 var csvImport = angular.module('ngCsvImport', []);
@@ -19,7 +19,7 @@ csvImport.directive('ngCsvImport', function() {
 		template: '<div><div ng-show="header && headerVisible"><div class="label">Header</div><input type="checkbox" ng-model="header"></div>'+
 			'<div ng-show="separator" ><div class="label">Seperator</div><input type="text" ng-change="changeSeparator" ng-model="separator"></div>'+
 			'<div><input class="btn cta gray" type="file"/></div></div>',
-		link: function(scope, element) {            
+		link: function(scope, element) {
 			element.on('keyup', function(e){
 				if ( scope.content != null ) {
 					var content = {
@@ -37,7 +37,7 @@ csvImport.directive('ngCsvImport', function() {
 				reader.onload = function(onLoadEvent) {
 					scope.$apply(function() {
 						var content = {
-							csv: onLoadEvent.target.result,
+							csv: onLoadEvent.target.result.replace(/\r\n|\r/g,'\n'),
 							header: scope.header,
 							separator: scope.separator
 						};
