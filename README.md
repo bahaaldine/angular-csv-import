@@ -9,7 +9,7 @@ http://bahaaldine.github.io/angular-csv-import
 
 ## Installation
 
-Install depedencies using bower: 
+Install dependencies using bower:
 ```
 bower install angular-csv-import
 ```
@@ -38,11 +38,12 @@ Include the **ng-csv-import** element with its options:
 
 ```html
 <ng-csv-import content="csv.content"
-	header="true" 
-	separator=","
+	header="true"
+	separator="','"
 	result="csv.result"></ng-csv-import>
 ```
 
+The separator is optional and will be set to a "," if not specified. To allow the user to change separators set ```separator-visible="true"```
 - **csv.content**
 
 A variable which will contain the content loaded by the file input
