@@ -1,4 +1,4 @@
-/*! angular-csv-import - v0.0.14 - 2015-02-10
+/*! angular-csv-import - v0.0.15 - 2015-04-08
 * Copyright (c) 2015 ; Licensed  */
 'use strict';
 
@@ -88,7 +88,7 @@ csvImport.directive('ngCsvImport', function() {
 						result.push(obj);
 					}
 				}
-				return JSON.stringify(result);
+				return result;
 			};
 		}
 	};
