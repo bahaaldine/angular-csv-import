@@ -1,4 +1,4 @@
-/*! angular-csv-import - v0.0.15 - 2015-04-08
+/*! angular-csv-import - v0.0.16 - 2015-05-12
 * Copyright (c) 2015 ; Licensed  */
 'use strict';
 
@@ -34,6 +34,7 @@ csvImport.directive('ngCsvImport', function() {
 
 			element.on('change', function(onChangeEvent) {
 				var reader = new FileReader();
+				scope.filename = onChangeEvent.target.files[0].name;
 				reader.onload = function(onLoadEvent) {
 					scope.$apply(function() {
 						var content = {
@@ -44,8 +45,10 @@ csvImport.directive('ngCsvImport', function() {
 
 						scope.content = content.csv;
 						scope.result = csvToJSON(content);
+						scope.result.filename = scope.filename;
 					});
 				};
+
 				if ( (onChangeEvent.target.type === "file") && (onChangeEvent.target.files != null || onChangeEvent.srcElement.files != null) )  {
 					reader.readAsText((onChangeEvent.srcElement || onChangeEvent.target).files[0]);
 				} else {
