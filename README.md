@@ -38,14 +38,22 @@ Include the **ng-csv-import** element with its options:
 
 ```html
 <ng-csv-import content="csv.content"
-	header="true" 
-	separator=","
+	header="csv.header" 
+	separator="csv.separator"
 	result="csv.result"></ng-csv-import>
 ```
 
 - **csv.content**
 
 A variable which will contain the content loaded by the file input
+
+- **csv.header**
+
+A variable that says whether or not the source CSV file contains headers
+
+- **csv.separator**
+
+A variable containing the separtor used in the CSV file
 
 - **csv.result**
 
