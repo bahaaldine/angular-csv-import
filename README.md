@@ -55,6 +55,10 @@ A variable that says whether or not the source CSV file contains headers
 
 A variable containing the separtor used in the CSV file
 
+- **csv.separatorVisible**
+
+A variable to toggle separator visibility
+
 - **csv.result**
 
 A variable which will contain the result of the CSV to JSON marshalling.
