@@ -1,4 +1,4 @@
-/*! angular-csv-import - v0.0.16 - 2015-05-12
+/*! angular-csv-import - v0.0.18 - 2015-09-04
 * Copyright (c) 2015 ; Licensed  */
 'use strict';
 
@@ -17,10 +17,13 @@ csvImport.directive('ngCsvImport', function() {
 			separatorVisible: '=',
 			result: '='
 		},
-		template: '<div><div ng-show="header && headerVisible"><div class="label">Header</div><input type="checkbox" ng-model="header"></div>'+
-			'<div ng-show="separator && separatorVisible"" ><div class="label">Seperator</div><input type="text" ng-change="changeSeparator" ng-model="separator"></div>'+
+		template: '<div><div ng-show="headerVisible"><div class="label">Header</div><input type="checkbox" ng-model="header"></div>'+
+			'<div ng-show="separator && separatorVisible"><div class="label">Seperator</div><input type="text" ng-change="changeSeparator" ng-model="separator"></div>'+
 			'<div><input class="btn cta gray" type="file"/></div></div>',
 		link: function(scope, element) {
+			scope.separatorVisible = scope.separatorVisible || false;
+			scope.headerVisible = scope.headerVisible || false;
+
 			element.on('keyup', function(e){
 				if ( scope.content != null ) {
 					var content = {
