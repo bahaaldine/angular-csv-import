@@ -1,11 +1,15 @@
 {
-    "name": "angular-csv-import",
+    "name": "angular-csv-import-tmp",
     "version": "0.0.19",
     "main": "dist/angular-csv-import.js",
     "license": "MIT",
     "authors": [
         "Bahaaldine AZARMI <bahaaldine@gmail.com>"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cybadave/angular-csv-import"
+    },
     "description": "angular component let's you import a CSV file",
     "keywords": [
         "angular",
