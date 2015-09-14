@@ -6,10 +6,7 @@
     "authors": [
         "Bahaaldine AZARMI <bahaaldine@gmail.com>"
     ],
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/cybadave/angular-csv-import.git"
-    },
+    "homepage": "https://github.com/cybadave/angular-csv-import",
     "description": "angular component let's you import a CSV file",
     "keywords": [
         "angular",
