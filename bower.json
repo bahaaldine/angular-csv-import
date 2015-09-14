@@ -8,7 +8,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/cybadave/angular-csv-import"
+        "url": "git://github.com/cybadave/angular-csv-import.git"
     },
     "description": "angular component let's you import a CSV file",
     "keywords": [
