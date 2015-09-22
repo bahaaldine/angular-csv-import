@@ -1,21 +1,29 @@
-<div class="block center">
-	<ng-csv-import 
-		class="import"
-		content="csv.content"
-		header="csv.header" 
-		separator="csv.separator"
-		result="csv.result"></ng-csv-import>
+
+<div class="block row">
+  <div class="title"><h4>Select your CSV file: </h4></div>
+  <div class="block right">
+    <ng-csv-import 
+      class="import"
+      content="csv.content"
+      header="csv.header" 
+      header-visible="csv.headerVisible" 
+      separator="csv.separator"
+      separator-visible="csv.separatorVisible"
+      result="csv.result"
+      encoding="csv.encoding"
+      encoding-visible="csv.encodingVisible"></ng-csv-import>
+  </div>
+</div> 
+
+<div class="block row">
+  <div class="title"><h4>See the results</h4></div>
+  <div class="content" hljs source="toPrettyJSON(csv.result, 2)"></div>
 </div>
 
-<div ng-if="csv.content" class="block left">
-    <h2>CSV</h2>
-    <div class="content"><pre>{{ csv.content }}</pre></div>
-</div>
-
-<div class="block right" ng-if="csv.result">
-	<h2>JSON</h2>
-	<div class="content" hljs source="toPrettyJSON(csv.result, 2)"></div>
-</div>
+<!--div ng-if="csv.content" class="block left">
+  <h2>CSV</h2>
+  <div class="content"><pre>{{ csv.content }}</pre></div>
+</div-->
 
 <footer>
   <div class="twitter">

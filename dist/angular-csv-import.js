@@ -1,3 +1,5 @@
+/*! angular-csv-import - v0.0.20 - 2015-09-22
+* Copyright (c) 2015 ; Licensed  */
 /*! angular-csv-import - v0.0.18 - 2015-09-04
 * Copyright (c) 2015 ; Licensed  */
 'use strict';
@@ -15,21 +17,25 @@ csvImport.directive('ngCsvImport', function() {
 			headerVisible: '=?',
 			separator: '=?',
 			separatorVisible: '=?',
-			result: '=?'
+			result: '=?',
+			encoding: '=?',
+			encodingVisible: '=?'
 		},
 		template: '<div><div ng-show="headerVisible"><div class="label">Header</div><input type="checkbox" ng-model="header"></div>'+
-			'<div ng-show="separator && separatorVisible"><div class="label">Seperator</div><input type="text" ng-change="changeSeparator" ng-model="separator"></div>'+
+			'<div ng-show="encoding && encodingVisible"><div class="label">Encoding</div><span>{{encoding}}</span></div>'+
+			'<div ng-show="separator && separatorVisible"><div class="label">Seperator</div><span><input class="separator-input" type="text" ng-change="changeSeparator" ng-model="separator"><span></div>'+
 			'<div><input class="btn cta gray" type="file"/></div></div>',
 		link: function(scope, element) {
 			scope.separatorVisible = scope.separatorVisible || false;
 			scope.headerVisible = scope.headerVisible || false;
 
-			element.on('keyup', function(e){
+			angular.element(element[0].querySelector('.separator-input')).on('keyup', function(e) {
 				if ( scope.content != null ) {
 					var content = {
 						csv: scope.content,
 						header: scope.header,
-						separator: e.target.value
+						separator: e.target.value,
+						encoding: scope.encoding
 					};
 					scope.result = csvToJSON(content);
 					scope.$apply();
@@ -46,7 +52,6 @@ csvImport.directive('ngCsvImport', function() {
 							header: scope.header,
 							separator: scope.separator
 						};
-
 						scope.content = content.csv;
 						scope.result = csvToJSON(content);
 						scope.result.filename = scope.filename;
@@ -54,7 +59,7 @@ csvImport.directive('ngCsvImport', function() {
 				};
 
 				if ( (onChangeEvent.target.type === "file") && (onChangeEvent.target.files != null || onChangeEvent.srcElement.files != null) )  {
-					reader.readAsText((onChangeEvent.srcElement || onChangeEvent.target).files[0]);
+					reader.readAsText((onChangeEvent.srcElement || onChangeEvent.target).files[0], scope.encoding);
 				} else {
 					if ( scope.content != null ) {
 						var content = {

@@ -5,8 +5,12 @@ angular.module('examplesApp')
     $scope.csv = {
     	content: null,
     	header: true,
+    	headerVisible: true,
     	separator: ',',
-    	result: null
+    	separatorVisible: true,
+    	result: null,
+    	encoding: 'ISO-8859-1',
+    	encodingVisible: true,
     };
 
     var _lastGoodResult = '';

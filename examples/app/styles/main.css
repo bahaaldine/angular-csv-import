@@ -10,12 +10,19 @@ div.container {
   text-align: center;
 }
 
-div.import {
-  width: 300px;
+div.block.row {
+  width: 100%;
+  margin: 10px 0px;
 }
 
-div.import>div {
-  margin: 5px 0px;
+div.block.row > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+div.block.row > div.title {
+  width: 30%;
+  color: white;
 }
 
 div.import>div>div.label {
@@ -32,17 +39,17 @@ div.import>div>input {
   margin: 5px 5px;
 }
 
-div.import>div>input[type="text"] {
-  font-size: 18px;
-  color: #d6492f;
-  padding: 2px 5px;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 2px;
-  width: 30px;
+
+div.import > div> span {
+  color: white;
 }
 
-div.import>div>input[type="file"] {
+div.import > div> span > input[type="text"] {
+  font-size: 18px;
+  color: #d6492f;
+  font-weight: bold;
+  border-radius: none;
+  outline: none;
 }
 
 div.import>div>input[type="file"] {
@@ -80,13 +87,6 @@ div.block {
   display: inline-block;
   vertical-align: middle;
   text-align: left;
-  margin: 0px 50px;
-}
-
-div.block>h2 {
-  color: white;
-  font-family: "Verdana";
-  text-align:center;
 }
 
 div.block.left {
@@ -107,23 +107,14 @@ div.block>div.content>pre {
   margin: 0;
 }
 
-div.block.center {
-  width: 200px;
-  display: block;
-  margin: 10px auto;
-}
-
-div.block.right {
-}
-
-
 footer {
 }
 
 footer>div {
-  position: absolute;
   color: white;
   bottom: 40px;
+  display: inline-block;
+  margin: 0px 50px;
 }
 
 footer>div a {
@@ -148,7 +139,7 @@ footer>div.twitter>div {
 
 footer>div.twitter>div.avatar {
   margin: 0px 5px 0px 0px;
-  background: url("../images/about.bahaaldine.png");
+  background: url("https://avatars1.githubusercontent.com/u/820299?v=3&s=460");
   background-size: contain;
   border: solid 3px white;
   width: 40px;
