@@ -51,6 +51,10 @@ A variable which will contain the content loaded by the file input
 
 A variable that says whether or not the source CSV file contains headers
 
+- **csv.headerVisible**
+
+A variable to toggle header visibility
+
 - **csv.separator**
 
 A variable containing the separtor used in the CSV file
@@ -58,6 +62,14 @@ A variable containing the separtor used in the CSV file
 - **csv.separatorVisible**
 
 A variable to toggle separator visibility
+
+- **csv.encoding**
+
+A variable to set the CSV file encoding
+
+- **csv.encodingVisible**
+
+A variable to toggle encoding visibility
 
 - **csv.result**
 
