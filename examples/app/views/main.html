@@ -15,8 +15,7 @@
   </div>
 </div> 
 
-<div class="block row">
-  <div class="title"><h4>See the results</h4></div>
+<div class="block row"  ng-if="csv.result">
   <div class="content" hljs source="toPrettyJSON(csv.result, 2)"></div>
 </div>
 

@@ -34,13 +34,11 @@ div.import>div>div.label {
   font-size: 14px;
 }
 
-div.import>div>input {
-  display: inline-block;
-  margin: 5px 5px;
+div.import > div {
+  margin: 15px 0px;
 }
 
-
-div.import > div> span {
+div.import > div > span {
   color: white;
 }
 
@@ -54,6 +52,7 @@ div.import > div> span > input[type="text"] {
 
 div.import>div>input[type="file"] {
   color: transparent;
+  padding: 0;
 }
 
 div.import>div>input[type="file"]::-webkit-file-upload-button {
