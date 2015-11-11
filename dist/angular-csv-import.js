@@ -1,6 +1,4 @@
-/*! angular-csv-import - v0.0.20 - 2015-09-22
-* Copyright (c) 2015 ; Licensed  */
-/*! angular-csv-import - v0.0.18 - 2015-09-04
+/*! angular-csv-import - v0.0.26 - 2015-11-11
 * Copyright (c) 2015 ; Licensed  */
 'use strict';
 
@@ -19,12 +17,18 @@ csvImport.directive('ngCsvImport', function() {
 			separatorVisible: '=?',
 			result: '=?',
 			encoding: '=?',
-			encodingVisible: '=?'
+			encodingVisible: '=?',
+			accept: '=?'
 		},
-		template: '<div><div ng-show="headerVisible"><div class="label">Header</div><input type="checkbox" ng-model="header"></div>'+
+		template: '<div>'+
+		  '<div ng-show="headerVisible"><div class="label">Header</div><input type="checkbox" ng-model="header"></div>'+
 			'<div ng-show="encoding && encodingVisible"><div class="label">Encoding</div><span>{{encoding}}</span></div>'+
-			'<div ng-show="separator && separatorVisible"><div class="label">Seperator</div><span><input class="separator-input" type="text" ng-change="changeSeparator" ng-model="separator"><span></div>'+
-			'<div><input class="btn cta gray" type="file"/></div></div>',
+			'<div ng-show="separator && separatorVisible">'+
+			'<div class="label">Seperator</div>'+
+			'<span><input class="separator-input" type="text" ng-change="changeSeparator" ng-model="separator"><span>'+
+			'</div>'+
+			'<div><input class="btn cta gray" type="file" multiple accept="{{accept}}"/></div>'+
+			'</div>',
 		link: function(scope, element) {
 			scope.separatorVisible = scope.separatorVisible || false;
 			scope.headerVisible = scope.headerVisible || false;
@@ -88,7 +92,7 @@ csvImport.directive('ngCsvImport', function() {
 					var obj = {};
 					var currentline=lines[i].split(new RegExp(content.separator+'(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)'));
 					if ( currentline.length === columnCount ) {
-						if (content.header) {
+						if (content.header) {
 							for (var j=0; j<headers.length; j++) {
 								obj[headers[j]] = currentline[j];
 							}
