@@ -2,6 +2,7 @@
   "name": "angular-csv-import",
   "author": "Bahaaldine AZARMI <bahaaldine@gmail.com>",
   "version": "0.0.26",
+  "main": "./lib/angular-csv-import.js",
   "engines": {
     "node": ">= 0.10.0"
   },
