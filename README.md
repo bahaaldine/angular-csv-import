@@ -40,7 +40,8 @@ Include the **ng-csv-import** element with its options:
 <ng-csv-import content="csv.content"
 	header="csv.header" 
 	separator="csv.separator"
-	result="csv.result"></ng-csv-import>
+	result="csv.result"
+	accept="csv.accept"></ng-csv-import>
 ```
 
 - **csv.content**
@@ -74,3 +75,7 @@ A variable to toggle encoding visibility
 - **csv.result**
 
 A variable which will contain the result of the CSV to JSON marshalling.
+
+- **csv.accept**
+
+An optional variable to limit what file types are accepted. Ex. ".csv" to only accept csv file types.
