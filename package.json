@@ -9,6 +9,7 @@
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
+    "grunt-bump": "0.0.14",
     "grunt-concurrent": "^0.5.0",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-concat": "^0.4.0",
@@ -28,8 +29,5 @@
     "load-grunt-tasks": "^0.4.0",
     "time-grunt": "^0.3.1",
     "grunt-gh-pages": "^0.9.1"
-  },
-  "dependencies": {
-    "grunt-bump": "0.0.14"
   }
 }
