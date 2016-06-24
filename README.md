@@ -38,11 +38,30 @@ Include the **ng-csv-import** element with its options:
 
 ```html
 <ng-csv-import content="csv.content"
+	material
+	md-button-class="md-icon-button md-raised md-accent"
+	md-svg-icon="file:ic_file_upload_24px"
 	header="csv.header" 
 	separator="csv.separator"
 	result="csv.result"
 	accept="csv.accept"></ng-csv-import>
 ```
+
+- **multiple**
+
+If `multiple` attribute setted the directive will thow an error due a not implemented yet logic.
+
+- **material**
+
+Attribute to tell to the directive to activate the material power!
+
+- **md-button-class**
+
+Attribute to personalize the md-button inside the directive
+
+- **md-svg-icon**
+
+The icon to show in md-button
 
 - **csv.content**
 
