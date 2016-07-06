@@ -1,4 +1,4 @@
-/*! angular-csv-import - v0.0.29 - 2016-07-07
+/*! angular-csv-import - v0.0.31 - 2016-07-07
 * Copyright (c) 2016 ; Licensed  */
 'use strict';
 
@@ -85,7 +85,7 @@ csvImport.directive('ngCsvImport', function() {
 			});
 
 			var csvToJSON = function(content) {
-				var lines=content.csv.split('\n');
+				var lines=content.csv.split(new RegExp('\n(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)'));
 				var result = [];
 				var start = 0;
 				var columnCount = lines[0].split(content.separator).length;
