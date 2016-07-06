@@ -49,8 +49,11 @@ csvImport.directive('ngCsvImport', function() {
 			});
 
 			element.on('change', function(onChangeEvent) {
-				var reader = new FileReader();
+				if (!onChangeEvent.target.files.length){
+					return;
+				}
 				scope.filename = onChangeEvent.target.files[0].name;
+				var reader = new FileReader();
 				reader.onload = function(onLoadEvent) {
 					scope.$apply(function() {
 						var content = {
