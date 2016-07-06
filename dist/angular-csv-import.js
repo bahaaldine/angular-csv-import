@@ -1,5 +1,5 @@
-/*! angular-csv-import - v0.0.26 - 2015-11-11
-* Copyright (c) 2015 ; Licensed  */
+/*! angular-csv-import - v0.0.29 - 2016-02-10
+* Copyright (c) 2016 ; Licensed  */
 'use strict';
 
 var csvImport = angular.module('ngCsvImport', []);
@@ -18,7 +18,8 @@ csvImport.directive('ngCsvImport', function() {
 			result: '=?',
 			encoding: '=?',
 			encodingVisible: '=?',
-			accept: '=?'
+			accept: '=?',
+			callback: '=?'
 		},
 		template: '<div>'+
 		  '<div ng-show="headerVisible"><div class="label">Header</div><input type="checkbox" ng-model="header"></div>'+
@@ -43,6 +44,7 @@ csvImport.directive('ngCsvImport', function() {
 					};
 					scope.result = csvToJSON(content);
 					scope.$apply();
+					scope.callback(e);
 				}
 			});
 
@@ -59,6 +61,9 @@ csvImport.directive('ngCsvImport', function() {
 						scope.content = content.csv;
 						scope.result = csvToJSON(content);
 						scope.result.filename = scope.filename;
+						scope.$$postDigest(function(){
+							scope.callback(onChangeEvent);
+						});
 					});
 				};
 
@@ -72,6 +77,9 @@ csvImport.directive('ngCsvImport', function() {
 							separator: scope.separator
 						};
 						scope.result = csvToJSON(content);
+						scope.$$postDigest(function(){
+							scope.callback(onChangeEvent);
+						});
 					}
 				}
 			});
