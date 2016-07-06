@@ -1,5 +1,5 @@
 {
-    "name": "angular-csv-import-tmp",
+    "name": "angular-csv-import",
     "version": "0.0.30",
     "main": "dist/angular-csv-import.js",
     "license": "MIT",
