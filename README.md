@@ -80,6 +80,14 @@ A variable which will contain the result of the CSV to JSON marshalling.
 
 An optional variable to limit what file types are accepted. Ex. ".csv" to only accept csv file types.
 
+- **csv.acceptSize**
+
+An optional variable to limit the size of the files that are accepted in bytes. Ex. "1024" to only accept files up to 1kB.
+
+- **csv.acceptSizeExceedCallback**
+
+An optional variable to pass in a callback to execute if the user attempted to upload a file larger than csv.acceptSize. Will run instead of parsing.
+
 - **csv.callback**
 
 An optional variable to pass in a callback to execute once the file has been parsed. Will run following any successful parsing (ie change file, change separator, etc...).
