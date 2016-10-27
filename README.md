@@ -9,7 +9,7 @@ http://bahaaldine.github.io/angular-csv-import
 
 ## Installation
 
-Install depedencies using bower: 
+Install depedencies using bower:
 ```
 bower install angular-csv-import
 ```
@@ -41,7 +41,7 @@ Include the **ng-csv-import** element with its options:
 	material
 	md-button-class="md-icon-button md-raised md-accent"
 	md-svg-icon="file:ic_file_upload_24px"
-	header="csv.header" 
+	header="csv.header"
 	separator="csv.separator"
 	result="csv.result"
 	accept="csv.accept"></ng-csv-import>
@@ -98,3 +98,15 @@ A variable which will contain the result of the CSV to JSON marshalling.
 - **csv.accept**
 
 An optional variable to limit what file types are accepted. Ex. ".csv" to only accept csv file types.
+
+- **csv.acceptSize**
+
+An optional variable to limit the size of the files that are accepted in bytes. Ex. "1024" to only accept files up to 1kB.
+
+- **csv.acceptSizeExceedCallback**
+
+An optional variable to pass in a callback to execute if the user attempted to upload a file larger than csv.acceptSize. Will run instead of parsing.
+
+- **csv.callback**
+
+An optional variable to pass in a callback to execute once the file has been parsed. Will run following any successful parsing (ie change file, change separator, etc...).
