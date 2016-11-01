@@ -26,6 +26,10 @@ module.exports = function(grunt) {
       dist: {
         src: ['lib/<%= pkg.name %>.js'],
         dest: 'dist/<%= pkg.name %>.js'
+      },
+      examples: {
+        src: ['lib/<%= pkg.name %>.js'],
+        dest: 'examples/app/bower_components/angular-csv-import/dist/<%= pkg.name %>.js'
       }
     },
     bump: {
@@ -50,6 +54,10 @@ module.exports = function(grunt) {
       dist: {
         src: '<%= concat.dist.dest %>',
         dest: 'dist/<%= pkg.name %>.min.js'
+      },
+      examples: {
+        src: '<%= concat.dist.dest %>',
+        dest: 'examples/app/bower_components/angular-csv-import/dist/<%= pkg.name %>.min.js'
       }
     },
     jshint: {

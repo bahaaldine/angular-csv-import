@@ -50,17 +50,17 @@ div.import > div> span > input[type="text"] {
   outline: none;
 }
 
-div.import>div>input[type="file"] {
+div.import>div>div>input[type="file"] {
   color: transparent;
   padding: 0;
 }
 
-div.import>div>input[type="file"]::-webkit-file-upload-button {
+div.import>div>div>input[type="file"]::-webkit-file-upload-button {
   visibility: hidden;
 }
 
-div.import>div>input[type="file"]::before {
-  content: 'Select some files';
+div.import>div>div>input[type="file"]::before {
+  content: attr(upload-button-label);
   display: inline-block;
   background-image: linear-gradient(to top, #f9f9f9 0px, #f9f9f9 50%, #e3e3e3 50%, #e3e3e3 100% );
   color: #444;
@@ -75,10 +75,10 @@ div.import>div>input[type="file"]::before {
   font-weight: 700;
   font-size: 14px;
 }
-div.import>div>input[type="file"]:hover::before {
+div.import>div>div>input[type="file"]:hover::before {
   border-color: black;
 }
-div.import>div>input[type="file"]:active::before {
+div.import>div>div>input[type="file"]:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 

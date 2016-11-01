@@ -11,6 +11,7 @@ angular.module('examplesApp')
     	result: null,
     	encoding: 'ISO-8859-1',
     	encodingVisible: true,
+        uploadButtonLabel: "upload a csv file"
     };
 
     var _lastGoodResult = '';
