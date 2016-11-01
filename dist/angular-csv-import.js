@@ -1,4 +1,4 @@
-/*! angular-csv-import - v0.0.31 - 2016-07-07
+/*! angular-csv-import - v0.0.30 - 2016-06-24
 * Copyright (c) 2016 ; Licensed  */
 'use strict';
 
@@ -19,20 +19,49 @@ csvImport.directive('ngCsvImport', function() {
 			encoding: '=?',
 			encodingVisible: '=?',
 			accept: '=?',
-			callback: '=?'
+			mdButtonClass: '@?',
+			mdInputClass: '@?',
+			mdButtonTitle: '@?',
+			mdSvgIcon: '@?'
 		},
-		template: '<div>'+
-		  '<div ng-show="headerVisible"><div class="label">Header</div><input type="checkbox" ng-model="header"></div>'+
+		template: function(element, attrs) {
+			var material = angular.isDefined(attrs.material);
+			var multiple = angular.isDefined(attrs.multiple);
+			return '<div class="ng-csv-import">'+
+		  	'<div ng-show="headerVisible"><div class="label">Header</div><input type="checkbox" ng-model="header"></div>'+
 			'<div ng-show="encoding && encodingVisible"><div class="label">Encoding</div><span>{{encoding}}</span></div>'+
 			'<div ng-show="separator && separatorVisible">'+
 			'<div class="label">Seperator</div>'+
 			'<span><input class="separator-input" type="text" ng-change="changeSeparator" ng-model="separator"><span>'+
 			'</div>'+
-			'<div><input class="btn cta gray" type="file" multiple accept="{{accept}}"/></div>'+
-			'</div>',
-		link: function(scope, element) {
+			'<div>' +
+			'<input class="btn cta gray" type="file" '+ (multiple ? 'multiple' : '') +' accept="{{accept}}"/>' +
+			(material ? '<md-button ng-click="onClick($event)" class="_md md-button {{mdButtonClass}}"><md-icon md-svg-icon="{{mdSvgIcon}}"></md-icon> {{mdButtonTitle}}</md-button><md-input-container style="margin:0;"><input type="text" class="_md md-input-readable md-input {{mdInputClass}}" ng-click="onClick($event)" ng-model="filename"></md-input-container>' : '') +
+			'</div>'+
+			'</div>';
+		},
+		link: function(scope, element, attrs) {
 			scope.separatorVisible = scope.separatorVisible || false;
 			scope.headerVisible = scope.headerVisible || false;
+			scope.material = angular.isDefined(attrs.material);
+			scope.multiple = angular.isDefined(attrs.multiple);
+			if (scope.multiple) {
+				throw new Error("Multiple attribute is not supported yet.");
+			}
+			var input = angular.element(element[0].querySelector('input[type="file"]'));
+			var inputContainer = angular.element(element[0].querySelector('md-input-container'));
+
+			if (scope.material && input) {
+				input.removeClass("ng-show");
+				input.addClass("ng-hide");
+				var errorSpacer = angular.element(inputContainer[0].querySelector('div.md-errors-spacer'));
+				if (errorSpacer) {
+					errorSpacer.remove();
+				}
+				scope.onClick = function() {
+					input.click();
+				};
+			}
 
 			angular.element(element[0].querySelector('.separator-input')).on('keyup', function(e) {
 				if ( scope.content != null ) {
@@ -44,16 +73,12 @@ csvImport.directive('ngCsvImport', function() {
 					};
 					scope.result = csvToJSON(content);
 					scope.$apply();
-					scope.callback(e);
 				}
 			});
 
 			element.on('change', function(onChangeEvent) {
-				if (!onChangeEvent.target.files.length){
-					return;
-				}
-				scope.filename = onChangeEvent.target.files[0].name;
 				var reader = new FileReader();
+				scope.filename = onChangeEvent.target.files[0].name;
 				reader.onload = function(onLoadEvent) {
 					scope.$apply(function() {
 						var content = {
@@ -64,9 +89,6 @@ csvImport.directive('ngCsvImport', function() {
 						scope.content = content.csv;
 						scope.result = csvToJSON(content);
 						scope.result.filename = scope.filename;
-						scope.$$postDigest(function(){
-							scope.callback(onChangeEvent);
-						});
 					});
 				};
 
@@ -80,15 +102,12 @@ csvImport.directive('ngCsvImport', function() {
 							separator: scope.separator
 						};
 						scope.result = csvToJSON(content);
-						scope.$$postDigest(function(){
-							scope.callback(onChangeEvent);
-						});
 					}
 				}
 			});
 
 			var csvToJSON = function(content) {
-				var lines=content.csv.split(new RegExp('\n(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)'));
+				var lines=content.csv.split('\n');
 				var result = [];
 				var start = 0;
 				var columnCount = lines[0].split(content.separator).length;
