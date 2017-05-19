@@ -106,6 +106,10 @@ div.block>div.content>pre {
   margin: 0;
 }
 
+.ng-csv-progress {
+  color: white;
+}
+
 footer {
 }
 

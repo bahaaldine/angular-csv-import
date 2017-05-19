@@ -12,12 +12,19 @@
       result="csv.result"
       encoding="csv.encoding"
       encoding-visible="csv.encodingVisible"
-      upload-button-label="csv.uploadButtonLabel"></ng-csv-import>
+      upload-button-label="csv.uploadButtonLabel"
+      progress-callback="csv.progressCallback"
+      streaming-callback="csv.streamingCallback"
+      streaming-error-callback="csv.streamingCallback"></ng-csv-import>
   </div>
 </div> 
 
+<div ng-if="progress">
+  <md-progress-linear md-mode="determinate" class="md-warn" value="{{progress}}"></md-progress-linear>
+</div>
+
 <div class="block row"  ng-if="csv.result">
-  <div class="content" hljs source="toPrettyJSON(csv.result, 2)"></div>
+  <div class="content" hljs source="toPrettyJSON(preview, 2)"></div>
 </div>
 
 <!--div ng-if="csv.content" class="block left">
