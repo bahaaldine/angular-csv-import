@@ -26,7 +26,8 @@ csvImport.directive('ngCsvImport', function() {
 			mdInputClass: '@?',
 			mdButtonTitle: '@?',
 			mdSvgIcon: '@?',
-			uploadButtonLabel: '='
+			uploadButtonLabel: '=',
+			lockImportSameFile:'=?'
 		},
 		template: function(element, attrs) {
 			var material = angular.isDefined(attrs.material);
@@ -142,6 +143,10 @@ csvImport.directive('ngCsvImport', function() {
 							}
 						});
 					}
+				}
+				
+				if(!scope.lockImportSameFile){
+					angular.element(document).find('.ng-csv-import.ng-isolate-scope input[type="file"]')[0].value = null;
 				}
 			});
 
