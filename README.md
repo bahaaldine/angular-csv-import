@@ -77,7 +77,7 @@ A variable to toggle header visibility
 
 - **csv.separator**
 
-A variable containing the separtor used in the CSV file
+A variable containing the separator used in the CSV file
 
 - **csv.separatorVisible**
 
