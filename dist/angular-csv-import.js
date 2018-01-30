@@ -26,7 +26,8 @@ csvImport.directive('ngCsvImport', function() {
 			mdInputClass: '@?',
 			mdButtonTitle: '@?',
 			mdSvgIcon: '@?',
-			uploadButtonLabel: '='
+			uploadButtonLabel: '=',
+			lockImportSameFile:'=?'
 		},
 		template: function(element, attrs) {
 			var material = angular.isDefined(attrs.material);
@@ -83,9 +84,9 @@ csvImport.directive('ngCsvImport', function() {
 					scope.result = csvToJSON(content);
 					scope.$apply();
 					if ( typeof scope.callback === 'function' ) {
-                        			if ( scope.callback != null) {
-                            				scope.callback(e);
-                        			}
+						if ( scope.callback != null) {
+							scope.callback(e);
+						}
 					}
 				}
 			});
@@ -116,9 +117,9 @@ csvImport.directive('ngCsvImport', function() {
 						scope.result.filename = scope.filename;
 						scope.$$postDigest(function(){
 							if ( typeof scope.callback === 'function' ) {
-				                                if ( scope.callback != null) {
-				                                    scope.callback(onChangeEvent);
-				                                }
+								if ( scope.callback != null) {
+									scope.callback(onChangeEvent);
+								}
 							}
 						});
 					});
@@ -136,12 +137,15 @@ csvImport.directive('ngCsvImport', function() {
 						scope.result = csvToJSON(content);
 						scope.$$postDigest(function(){
 							if ( typeof scope.callback === 'function' ) {
-				                                if ( scope.callback != null) {
-				                                    scope.callback(onChangeEvent);
-				                                }
+								if ( scope.callback != null) {
+									scope.callback(onChangeEvent);
+								}
 							}
 						});
 					}
+				}
+				if(!scope.lockImportSameFile){
+					angular.element(document).find('.ng-csv-import.ng-isolate-scope input[type="file"]')[0].value = null;
 				}
 			});
 
