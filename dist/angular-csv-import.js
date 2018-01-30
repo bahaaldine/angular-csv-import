@@ -1,5 +1,5 @@
-/*! angular-csv-import - v0.0.37 - 2017-05-19
-* Copyright (c) 2017 ; Licensed  */
+/*! angular-csv-import - v0.0.38 - 2018-01-30
+* Copyright (c) 2018 ; Licensed  */
 'use strict';
 
 var csvImport = angular.module('ngCsvImport', []);
@@ -26,16 +26,15 @@ csvImport.directive('ngCsvImport', function() {
 			mdInputClass: '@?',
 			mdButtonTitle: '@?',
 			mdSvgIcon: '@?',
-			uploadButtonLabel: '=',
-			lockImportSameFile:'=?'
+			uploadButtonLabel: '='
 		},
 		template: function(element, attrs) {
 			var material = angular.isDefined(attrs.material);
 			var multiple = angular.isDefined(attrs.multiple);
 			return '<div class="ng-csv-import">'+
-		  	'<div ng-show="headerVisible"><div class="label">Header</div>' +
-		  	(material ? '<input type="checkbox" ng-model="header"></div>' :
-		  		'<md-switch class="ng-csv-import-header-switch" ng-model="header"></md-switch>') +
+			'<div ng-show="headerVisible"><div class="label">Header</div>' +
+			(material ? '<input type="checkbox" ng-model="header"></div>' :
+				'<md-switch class="ng-csv-import-header-switch" ng-model="header"></md-switch></div>') +
 			'<div ng-show="encodingVisible"><div class="label">Encoding</div><span>{{encoding}}</span></div>'+
 			'<div ng-show="separatorVisible">'+
 			'<div class="label">Seperator</div>'+
@@ -143,10 +142,6 @@ csvImport.directive('ngCsvImport', function() {
 							}
 						});
 					}
-				}
-				
-				if(!scope.lockImportSameFile){
-					angular.element(document).find('.ng-csv-import.ng-isolate-scope input[type="file"]')[0].value = null;
 				}
 			});
 
